@@ -14,11 +14,19 @@ class Employee {
             this.salary = salary; // ทำการกำหนดค่า
     }
     
-    public double getSalary(){
+//    public double getSalary(){
+//    
+//        
+//        return salary;
+//    }
     
+      public double getSalary(String password){
         
-        return salary;
+        if (password.equals("1212312121"))
+            return salary;
+        else return -1;
     }
+
     
 
 }
@@ -32,6 +40,6 @@ public class EmployeeTestDrive {
         ck.name = "Chanakarn Kingkaew";
         //ck.salary = 100_000_000;
         ck.setSalary(20_000);
-        System.out.println(ck.getSalary());
+        System.out.println(ck.getSalary("1212312121"));
     }
 }
