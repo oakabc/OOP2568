@@ -73,6 +73,26 @@ class Circle extends Shape {
         return String.format("A Circle with radius = %.2f, which is a subclass of %s", radius, super.toString());
     }
     
+    
+    /**
+     * เปรียบเทียบความเท่ากันของวงกลมโดย radius, filled, color ต้องเท่ากัน
+     * @param c1
+     * @return 
+     */
+    @Override
+    public boolean equals(Object c1) {
+        
+        Circle that = (Circle) c1; // Downcasting
+        
+        return this.radius == that.radius && this.color.equals(that.color) && this.filled == that.filled;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 13 * hash + (int) (Double.doubleToLongBits(this.radius) ^ (Double.doubleToLongBits(this.radius) >>> 32));
+        return hash;
+    }
 }
 
 
@@ -81,12 +101,18 @@ public class Main {
     
     public static void main (String[] args) {
         
-        Shape c = new Circle("Blue", true, 5);
+        Shape c = new Circle("Blue", true, 5.0);
         System.out.println(c);
         
-        Shape ba = new Circle("Red", false, 5);
+        Shape ba = new Circle("Red", false, 5.0);
         System.out.println(ba);
         
-        System.out.println(c==ba); // reference ไปที่เดียวกันหรือไม่
+        Shape d = new Circle("Blue", true, 5.0);
+        System.out.println(d);
+        System.out.println(c.equals(d));
+        
+        System.out.println(c == ba); // reference ไปที่เดียวกันหรือไม่
+        System.out.println(c.equals(ba)); // content ใน Object เท่ากัน
     }
+    
 }
