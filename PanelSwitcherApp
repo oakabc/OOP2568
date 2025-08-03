@@ -1,0 +1,29 @@
+// File: CounterController.java
+// The Controller: Handles user interaction and updates the Model.
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+// Polymorphism: The Controller implements the standard ActionListener interface.
+// The JButton expects an object that "is an" ActionListener.
+public class CounterController implements ActionListener {
+
+    private final CounterModel model;
+    private final CounterView view;
+
+    public CounterController(CounterModel model, CounterView view) {
+        // Encapsulation: The controller holds references to the specific model and view it manages.
+        this.model = model;
+        this.view = view;
+    }
+
+    // This is the implementation of the `actionPerformed` method from the ActionListener interface.
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // When the button is clicked, this method is called.
+        // The Controller's job is to update the Model.
+        // It does NOT update the View directly.
+        if (e.getSource() == view.getIncrementButton()) {
+            model.increment();
+        }
+    }
+}
