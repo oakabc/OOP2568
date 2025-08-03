@@ -1,3 +1,10 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.*;
+import java.awt.*;
+
 // ไฟล์: MVCCounterApp.java
 // นี่คือคลาสหลักที่ประกอบและรันแอปพลิเคชัน
 // โค้ดทั้งหมดของแอปพลิเคชันถูกรวมไว้ในไฟล์นี้เพื่อให้รันได้ง่ายขึ้น
@@ -43,8 +50,7 @@ interface CountListener {
 
 // Model: ห่อหุ้มข้อมูลและตรรกะของแอปพลิเคชัน
 // มันใช้ custom interface เพื่อแจ้งเตือน listeners ที่สนใจการเปลี่ยนแปลง
-import java.util.ArrayList;
-import java.util.List;
+
 
 class CounterModel {
     // Encapsulation (การห่อหุ้ม): 'count' เป็น private และสามารถแก้ไขได้ผ่าน method public เท่านั้น
@@ -83,8 +89,7 @@ class CounterModel {
 
 // View: ส่วนติดต่อผู้ใช้แบบกราฟิก
 // มันสืบทอดจาก JFrame และใช้ custom interface CountListener ของเรา
-import javax.swing.*;
-import java.awt.*;
+
 
 // Inheritance (การสืบทอด): CounterView เป็น JFrame และสืบทอดคุณสมบัติทั้งหมดของมัน
 // Polymorphism: CounterView ยังเป็น CountListener ตามที่กำหนดใน interface
@@ -124,8 +129,7 @@ class CounterView extends JFrame implements CountListener {
 }
 
 // Controller: จัดการการโต้ตอบของผู้ใช้และอัปเดต Model
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 
 // Polymorphism: Controller ใช้ interface ActionListener มาตรฐาน
 // JButton คาดหวังอ็อบเจกต์ที่ "เป็น" ActionListener
